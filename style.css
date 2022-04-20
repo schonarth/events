@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+p {
+  margin: 1em 0;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 99vh;
+}
+.main-container {
+  flex: 1;
+  flex-shrink: 2;
+  background-color: lightblue;
+  height: auto;
+  padding: 1em;
+}
+.output-container {
+  flex: 1;
+  flex-grow: 10;
+  background: linear-gradient(180deg, lightblue 0%, white 100%);
+  height: 100%;
+  padding: 1em;
+}
+.output {
+  font-family: 'Courier New', Courier, monospace;
+  width: 96%;
+  height: 100%;
+  margin: 2%;
+  padding: 0 1em;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1em;
+  border: solid 1px rgba(255, 255, 255, 0.9);
+}
+
+button {
+  padding: .5em;
+  font-size: 12pt;
+  font-weight: bold;
+  cursor: pointer;
+}
