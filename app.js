@@ -1,5 +1,3 @@
-// TODO optimize the shit out of it
-
 function printOutput(output) {
   console.log(output);
   const element = document.querySelector('#output') || '';
@@ -18,37 +16,63 @@ function handleBodyClick(event) {
   printOutput(`Clicked the body on ${event.target.tagName}${classNames}${id}`);
 }
 
-function enableParaEvents() {
-  printOutput('Enabling Paragraph events');
+function handleBodyRightClick(event) {
+  // Not concerned to prevent context menu here, let it pop
+
+  const classNames = !!event.target.className
+    ? `.${event.target.className}`
+    : '';
+  const id = !!event.target.id ? `#${event.target.id}` : '';
+  printOutput(
+    `Right-clicked the body on ${event.target.tagName}${classNames}${id}`
+  );
+}
+
+function enableParaClicks() {
+  printOutput('Enabling Paragraph clicks');
   document.querySelectorAll('p').forEach((p) => {
     p.addEventListener('click', handleParaClick);
   });
 }
-function disableParaEvents() {
-  printOutput('Disabling Paragraph events');
+function disableParaClicks() {
+  printOutput('Disabling Paragraph clicks');
   document.querySelectorAll('p').forEach((p) => {
     p.removeEventListener('click', handleParaClick);
   });
 }
 
-function enableBodyEvents() {
-  printOutput('Enabling Body events');
+function enableBodyClicks() {
+  printOutput('Enabling Body clicks');
   document.body.addEventListener('click', handleBodyClick);
 }
-function disableBodyEvents() {
-  printOutput('Disabling Body events');
+function disableBodyClicks() {
+  printOutput('Disabling Body clicks');
   document.body.removeEventListener('click', handleBodyClick);
+}
+function enableBodyRightClicks() {
+  printOutput('Enabling Body right-clicks');
+  document.body.addEventListener('contextmenu', handleBodyRightClick);
+}
+function disableBodyRightClicks() {
+  printOutput('Disabling Body right-clicks');
+  document.body.removeEventListener('contextmenu', handleBodyRightClick);
 }
 
 document
-  .querySelector('#bodyEventsEnable')
-  .addEventListener('click', enableBodyEvents);
+  .querySelector('#bodyClicksEnable')
+  .addEventListener('click', enableBodyClicks);
 document
-  .querySelector('#bodyEventsDisable')
-  .addEventListener('click', disableBodyEvents);
+  .querySelector('#bodyClicksDisable')
+  .addEventListener('click', disableBodyClicks);
 document
-  .querySelector('#paraEventsEnable')
-  .addEventListener('click', enableParaEvents);
+  .querySelector('#bodyRightClicksEnable')
+  .addEventListener('click', enableBodyRightClicks);
 document
-  .querySelector('#paraEventsDisable')
-  .addEventListener('click', disableParaEvents);
+  .querySelector('#bodyRightClicksDisable')
+  .addEventListener('click', disableBodyRightClicks);
+document
+  .querySelector('#paraClicksEnable')
+  .addEventListener('click', enableParaClicks);
+document
+  .querySelector('#paraClicksDisable')
+  .addEventListener('click', disableParaClicks);

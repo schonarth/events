@@ -40,4 +40,26 @@ button {
   font-size: 12pt;
   font-weight: bold;
   cursor: pointer;
+  border: solid 1px;
+  border-radius: .3em;
+  margin: 2px;
+}
+button.enable {
+  border-color: darkgreen;
+  color: darkgreen;
+  background-color: #BEE3DB;
+}
+button.disable {
+  border-color: darkred;
+  color: darkred;
+  background-color: lightcoral;
+}
+button:hover {
+  filter: brightness(110%);
+}
+button:focus {
+  filter: brightness(90%);
+  position:relative;
+  top: 1px;
+  left: 1px;
 }
